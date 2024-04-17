@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { addMovie } from "../../redux/thunk";
@@ -6,21 +6,15 @@ import { toast } from "react-toastify";
 import TextField from "@mui/material/TextField";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { Unstable_NumberInput as NumberInput } from "@mui/base/Unstable_NumberInput";
-import { Btn } from "../../components/Movie/Movie.styled";
 import { AddMovieWrapper, StyledBtn } from "./AddMoviepage.styled";
-
-// import AdapterDayjs from "@datepicker-react/dayjs";
+import { useNavigate } from "react-router-dom/dist";
 
 const AddMoviePage = () => {
   const dispatch = useDispatch();
   const [releaseDate, setReleaseDate] = useState(new Date());
+  const navigate = useNavigate();
 
-  const {
-    register,
-    handleSubmit,
-    // formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const submit = (e) => {
     const newMovie = {
@@ -34,6 +28,7 @@ const AddMoviePage = () => {
       .unwrap()
       .then(() => {
         toast.success("Movie was added successfully");
+        navigate("/");
       })
       .catch((err) => toast.error(err));
   };
