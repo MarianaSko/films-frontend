@@ -1,4 +1,3 @@
-import React from "react";
 import { StyledList, StyledMessage } from "../HomePage/HomePage.styled";
 import { useSelector } from "react-redux";
 import { selectFavorites } from "../../redux/selectors";

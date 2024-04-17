@@ -18,7 +18,6 @@ export const ModalContent = styled.div`
   border-radius: 10px;
   padding: 24px 12px;
   margin: 40px 20px;
-  /* background-color: #b3c9ff; */
   background-color: #99b7ff;
   height: fit-content;
   @media only screen and (min-width: 768px) {
@@ -34,10 +33,4 @@ export const ModalButtonClose = styled.button`
   padding: 0;
   right: 8px;
   top: 8px;
-  /* @media only screen and (min-width: 768px) {
-    right: 24px;
-  }
-  @media only screen and (min-width: 1440px) {
-    top: 36px;
-  } */
 `;

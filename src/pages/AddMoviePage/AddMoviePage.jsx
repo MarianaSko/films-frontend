@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { addMovie } from "../../redux/thunk";
 import { toast } from "react-toastify";
 import TextField from "@mui/material/TextField";
+import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { Unstable_NumberInput as NumberInput } from "@mui/base/Unstable_NumberInput";
+import { Btn } from "../../components/Movie/Movie.styled";
+import { AddMovieWrapper, StyledBtn } from "./AddMoviepage.styled";
+
+// import AdapterDayjs from "@datepicker-react/dayjs";
 
 const AddMoviePage = () => {
   const dispatch = useDispatch();
+  const [releaseDate, setReleaseDate] = useState(new Date());
 
   const {
     register,
@@ -19,7 +27,7 @@ const AddMoviePage = () => {
       title: e.title,
       rating: e.rating || 0,
       description: e.description || "No description",
-      release_date: e.releaseDate || Date.now(),
+      release_date: releaseDate || Date.now(),
       director: e.director || "Director is not specified",
     };
     dispatch(addMovie(newMovie))
@@ -31,41 +39,77 @@ const AddMoviePage = () => {
   };
 
   return (
-    <div>
-      AddMoviePage
+    <AddMovieWrapper>
+      <h3>Add new movie</h3>
       <form action="" onSubmit={handleSubmit(submit)}>
-        {/* <label htmlFor="title">Title</label>
-        <input type="text" {...register("title")} id="title" /> */}
         <TextField
           label="Title"
           {...register("title")}
           id="outlined-start-adornment"
-          sx={{ m: 1, width: "25ch" }}
+          required
+          sx={{
+            m: 1,
+            "& input": {
+              width: "240px",
+            },
+          }}
         />
-        <label htmlFor="rating">Rating</label>
-        <input type="text" {...register("rating")} id="rating" />
-        {/* <label htmlFor="description">Description</label>
-        <input type="text" {...register("description")} id="description" /> */}
+        <TextField
+          id="outlined-number"
+          {...register("rating")}
+          label="Rating"
+          type="number"
+          inputProps={{
+            min: 0,
+            max: 10,
+            step: 0.1,
+          }}
+          sx={{
+            m: 1,
+            "& input": {
+              width: "240px",
+            },
+          }}
+        />
         <TextField
           label="Description"
           {...register("description")}
           id="outlined-start-adornment"
-          sx={{ m: 1, width: "25ch" }}
+          sx={{
+            m: 1,
+            "& input": {
+              width: "240px",
+            },
+          }}
         />
-        <label htmlFor="releaseDate">Release date</label>
-        <input type="text" {...register("releaseDate")} id="releaseDate" />
-        {/* <label htmlFor="director">Director</label>
-        <input type="text" {...register("director")} id="director" /> */}
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DatePicker
+            {...register("date")}
+            label="Release Date"
+            onChange={(date) => setReleaseDate(date)}
+            sx={{
+              m: 1,
+              "& input": {
+                width: "204px",
+              },
+            }}
+          />
+        </LocalizationProvider>
         <TextField
           label="Director"
           {...register("director")}
           id="outlined-start-adornment"
-          sx={{ m: 1, width: "25ch" }}
+          sx={{
+            m: 1,
+            "& input": {
+              width: "240px",
+            },
+          }}
         />
 
-        <button type="submit">Add</button>
+        <StyledBtn type="submit">Add</StyledBtn>
       </form>
-    </div>
+    </AddMovieWrapper>
   );
 };
 

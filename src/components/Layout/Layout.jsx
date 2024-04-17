@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import logo from "../../assets/favicon.png";
 import {
   Container,
@@ -16,6 +16,7 @@ const Layout = () => {
           <img src={logo} width="40px"></img>
         </LogoNavLink>
         <StyledNavigation>
+          <StyledNavLink to="/">Movies</StyledNavLink>
           <StyledNavLink to="/favourites">Favourites</StyledNavLink>
           <StyledNavLink to="/add">Add movie</StyledNavLink>
         </StyledNavigation>

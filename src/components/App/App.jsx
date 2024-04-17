@@ -3,7 +3,7 @@ import Layout from "../Layout/Layout";
 import HomePage from "../../pages/HomePage/HomePage";
 import AddMoviePage from "../../pages/AddMoviePage/AddMoviePage";
 import FavoritesPage from "../../pages/FavoritesPage/FavoritesPage";
-import EditPage from "../EditPage/EditPage";
+import EditPage from "../../pages/EditPage/EditPage";
 
 const App = () => {
   return (

@@ -1,8 +1,7 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { selectAllMovies } from "../../redux/selectors";
 import { InputContainer, InputWrapper } from "./Search.styled";
-import { Container } from "../Layout/Layout.styled";
+import { TextField } from "@mui/material";
 
 const Search = ({ filteredMovies }) => {
   const allMovies = useSelector(selectAllMovies);
@@ -18,12 +17,17 @@ const Search = ({ filteredMovies }) => {
   return (
     <InputContainer>
       <InputWrapper>
-        <label id="movieTitle">You can search movies by title</label>
-        <input
-          type="text"
-          aria-labelledby="movieTitle"
+        <TextField
+          label="Search movie by title"
           onChange={filterByTitle}
-          placeholder="Enter the title"
+          id="outlined-start-adornment"
+          sx={{
+            m: 1,
+
+            "& input": {
+              width: "240px",
+            },
+          }}
         />
       </InputWrapper>
     </InputContainer>

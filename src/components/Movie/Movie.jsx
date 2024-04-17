@@ -6,14 +6,12 @@ import { selectFavorites } from "../../redux/selectors";
 import { removeFavorites, setFavorites } from "../../redux/slice";
 import favoriteBtn from "../../assets/favorite.svg";
 import favoriteChecked from "../../assets/favoriteChecked.svg";
-import { useLocation } from "react-router-dom";
 import ModalWindow from "../ModalPortal/ModalPortal";
 import { InfoModal } from "../InfoModal/InfoModal";
 
 const Movie = ({ movie }) => {
   const { _id, image, title, rating, release_date } = movie;
 
-  const location = useLocation();
   const favorites = useSelector(selectFavorites);
   const [isChecked, setIsChecked] = useState(favorites.includes(_id));
   const dispatch = useDispatch();
@@ -34,9 +32,9 @@ const Movie = ({ movie }) => {
   const formattedDate = getFormattedDate(release_date);
 
   const handleImageError = (event) => {
-    event.target.onError = null; // Remove the event listener to prevent an infinite loop
+    event.target.onError = null;
     event.target.src =
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"; // Set the default image URL
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
   };
   return (
     <li>

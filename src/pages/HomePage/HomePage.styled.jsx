@@ -15,12 +15,6 @@ export const StyledList = styled.ul`
     border-radius: 8px;
     background-color: rgba(52, 112, 255, 0.5);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    /* transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); */
-
-    &:hover {
-      /* transform: scale(1.03);
-      cursor: pointer; */
-    }
   }
   img {
     border-radius: 8px;

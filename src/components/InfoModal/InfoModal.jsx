@@ -1,14 +1,14 @@
 import { getFormattedDate } from "../../helpers/getFormattedDate";
-import { useEffect, useState } from "react";
-import { InfoModalWrapper, InfoWrapper } from "./InfoModal.styled";
-import { Btn } from "../Movie/Movie.styled";
-import ModalWindow from "../ModalPortal/ModalPortal";
+import {
+  BtnWrapper,
+  InfoModalWrapper,
+  InfoWrapper,
+  StyledNavLink,
+} from "./InfoModal.styled";
+
 import { useDispatch } from "react-redux";
 import { deleteMovie } from "../../redux/thunk";
 import { toast } from "react-toastify";
-import { MaterialReactTable } from "material-react-table";
-import { NavLink } from "react-router-dom/dist";
-import { StyledNavLink } from "../Layout/Layout.styled";
 
 export const InfoModal = ({ movie }) => {
   const {
@@ -23,15 +23,14 @@ export const InfoModal = ({ movie }) => {
     genre,
   } = movie;
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
 
   const formattedDate = getFormattedDate(release_date);
 
   const handleImageError = (event) => {
-    event.target.onError = null; // Remove the event listener to prevent an infinite loop
+    event.target.onError = null;
     event.target.src =
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"; // Set the default image URL
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
   };
 
   const onDelete = (id) => {
@@ -42,9 +41,6 @@ export const InfoModal = ({ movie }) => {
       })
       .catch((err) => toast.error(err));
   };
-  useEffect(() => {
-    console.log("Component re-rendered");
-  }, [isModalOpen]);
 
   return (
     <>
@@ -75,14 +71,12 @@ export const InfoModal = ({ movie }) => {
           <p>
             <span>Release date:</span> {formattedDate}
           </p>
-          <NavLink to="/edit">Edit</NavLink>
-          <button onClick={() => onDelete(_id)}>Delete</button>
+          <BtnWrapper>
+            <StyledNavLink to="/edit">Edit</StyledNavLink>
+            <button onClick={() => onDelete(_id)}>Delete</button>
+          </BtnWrapper>
         </InfoWrapper>
-        {/* <MaterialReactTable /> */}
       </InfoModalWrapper>
-      {/* {isModalOpen && (
-        <ModalWindow onClose={() => setIsModalOpen(false)}></ModalWindow> */}
-      )}
     </>
   );
 };

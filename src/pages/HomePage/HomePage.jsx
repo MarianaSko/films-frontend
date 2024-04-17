@@ -6,10 +6,8 @@ import { selectAllMovies } from "../../redux/selectors";
 import Movie from "../../components/Movie/Movie";
 import { StyledList, StyledMessage } from "./HomePage.styled";
 import Search from "../../components/Search/Search";
-import { Link, useLocation } from "react-router-dom";
 
 const HomePage = () => {
-  const location = useLocation();
   const allMovies = useSelector(selectAllMovies);
   const dispatch = useDispatch();
   const [filteredMovies, setFilteredMovies] = useState([]);

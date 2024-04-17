@@ -29,3 +29,12 @@ export const addMovie = createAsyncThunk('/movies/add', async (newMovie, thunkAp
     }
 
 })
+
+export const editMovie = createAsyncThunk('/movies/edit', async ({ newData, editedMovieId }, thunkApi) => {
+    try {
+        const response = await api.put(`/movies/${editedMovieId}`, newData);
+        return response.data;
+    } catch (error) {
+        return thunkApi.rejectWithValue(error.message);
+    }
+})

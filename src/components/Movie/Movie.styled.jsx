@@ -14,7 +14,6 @@ export const DescWrapper = styled.div`
   display: flex;
   flex-direction: column;
   span {
-    /* font-size: 12px; */
     font-weight: bold;
     opacity: 0.5;
   }
@@ -51,7 +50,6 @@ export const Btn = styled.button`
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
-  /* padding: 16px 23px; */
   position: relative;
   text-decoration: none;
   user-select: none;
@@ -81,7 +79,6 @@ export const Btn = styled.button`
   }
 
   &:hover:before {
-    /* background-color: #6dcff6; */
     background-color: rgba(52, 112, 255, 0.8);
   }
 `;
