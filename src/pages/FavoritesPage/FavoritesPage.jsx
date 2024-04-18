@@ -12,7 +12,7 @@ const FavoritesPage = () => {
       <h3>Your favourite movies</h3>
       {favorites?.length === 0 ? (
         <StyledMessage>
-          You do not have any advertisments in your <span>favorites list</span>!
+          You do not have any movies in your <span>favorites list</span>!
         </StyledMessage>
       ) : (
         <StyledList>
