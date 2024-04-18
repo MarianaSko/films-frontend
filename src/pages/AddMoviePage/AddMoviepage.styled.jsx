@@ -5,7 +5,13 @@ export const AddMovieWrapper = styled.div`
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 24px;
+
+    @media only screen and (max-width: 550px) {
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
   }
+
   form {
     display: flex;
     align-items: center;
@@ -37,6 +43,7 @@ export const StyledBtn = styled.button`
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+
   @media (min-width: 768px) {
     padding: 0.75rem 3rem;
     font-size: 1.25rem;

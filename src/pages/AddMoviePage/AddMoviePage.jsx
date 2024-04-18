@@ -10,8 +10,8 @@ import { AddMovieWrapper, StyledBtn } from "./AddMoviepage.styled";
 import { useNavigate } from "react-router-dom/dist";
 
 const AddMoviePage = () => {
-  const dispatch = useDispatch();
   const [releaseDate, setReleaseDate] = useState(new Date());
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const { register, handleSubmit } = useForm();
@@ -24,6 +24,7 @@ const AddMoviePage = () => {
       release_date: releaseDate || Date.now(),
       director: e.director || "Director is not specified",
     };
+
     dispatch(addMovie(newMovie))
       .unwrap()
       .then(() => {
@@ -101,7 +102,6 @@ const AddMoviePage = () => {
             },
           }}
         />
-
         <StyledBtn type="submit">Add</StyledBtn>
       </form>
     </AddMovieWrapper>

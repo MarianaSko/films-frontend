@@ -7,6 +7,7 @@ import {
   StyledNavLink,
   StyledNavigation,
 } from "./Layout.styled";
+import { Suspense } from "react";
 
 const Layout = () => {
   return (
@@ -23,7 +24,9 @@ const Layout = () => {
       </Header>
       <main>
         <Container>
-          <Outlet />
+          <Suspense fallback={null}>
+            <Outlet />
+          </Suspense>
         </Container>
       </main>
     </div>

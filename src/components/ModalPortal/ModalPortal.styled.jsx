@@ -8,6 +8,7 @@ export const ModalWrapper = styled.div`
   background: rgba(0, 0, 0, 0.8);
   z-index: 100;
   overflow: auto;
+
   @media only screen and (min-width: 1440px) {
     align-items: center;
   }
@@ -20,6 +21,7 @@ export const ModalContent = styled.div`
   margin: 40px 20px;
   background-color: #99b7ff;
   height: fit-content;
+
   @media only screen and (min-width: 768px) {
     padding: 32px 24px;
     margin: 40px 32px;

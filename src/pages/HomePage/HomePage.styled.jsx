@@ -5,6 +5,7 @@ export const StyledList = styled.ul`
   justify-content: center;
   flex-wrap: wrap;
   gap: 16px;
+
   li {
     display: flex;
     flex-direction: column;
@@ -15,7 +16,13 @@ export const StyledList = styled.ul`
     border-radius: 8px;
     background-color: rgba(52, 112, 255, 0.5);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    @media only screen and (max-width: 536px) {
+      width: 268px;
+      padding: 20px 8px;
+    }
   }
+
   img {
     border-radius: 8px;
   }

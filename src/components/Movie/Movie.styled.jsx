@@ -4,6 +4,7 @@ export const ImgWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
   img {
     height: 244px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -13,10 +14,12 @@ export const ImgWrapper = styled.div`
 export const DescWrapper = styled.div`
   display: flex;
   flex-direction: column;
+
   span {
     font-weight: bold;
     opacity: 0.5;
   }
+
   p {
     font-size: 12px;
   }
@@ -46,7 +49,6 @@ export const Btn = styled.button`
   border: 1px solid #266db6;
   box-sizing: border-box;
   color: #00132c;
-  font-family: "Avenir Next LT W01 Bold", sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;

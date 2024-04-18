@@ -9,8 +9,12 @@ import {
 import { useDispatch } from "react-redux";
 import { deleteMovie } from "../../redux/thunk";
 import { toast } from "react-toastify";
+import { useState } from "react";
+import Edit from "../Edit/Edit";
 
 export const InfoModal = ({ movie }) => {
+  const [isEditOpen, setIsEditOpen] = useState(false);
+
   const {
     _id,
     image,
@@ -72,11 +76,14 @@ export const InfoModal = ({ movie }) => {
             <span>Release date:</span> {formattedDate}
           </p>
           <BtnWrapper>
-            <StyledNavLink to="/edit">Edit</StyledNavLink>
+            <StyledNavLink onClick={() => setIsEditOpen(!isEditOpen)}>
+              Edit
+            </StyledNavLink>
             <button onClick={() => onDelete(_id)}>Delete</button>
           </BtnWrapper>
         </InfoWrapper>
       </InfoModalWrapper>
+      {isEditOpen && <Edit movie={movie} close={() => setIsEditOpen(false)} />}
     </>
   );
 };

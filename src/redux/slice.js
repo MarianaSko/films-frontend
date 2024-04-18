@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addMovie, deleteMovie, getAllMovies } from "./thunk";
+import { addMovie, deleteMovie, editMovie, getAllMovies } from "./thunk";
 
 const slice = createSlice({
     name: "movies",
@@ -21,7 +21,6 @@ const slice = createSlice({
         removeFavorites: (state, { payload }) => {
             state.favorites = state.favorites.filter(({ _id }) => _id !== payload)
         },
-
     },
 
     extraReducers: builder => {
@@ -51,13 +50,25 @@ const slice = createSlice({
             })
             .addCase(addMovie.fulfilled, (state, { payload }) => {
                 state.allMovies = state.allMovies.push(payload);
-
                 state.isLoading = false;
             })
             .addCase(addMovie.pending, state => {
                 state.isLoading = true;
             })
             .addCase(addMovie.rejected, (state, { payload }) => {
+                state.isLoading = false;
+                state.isError = payload;
+            })
+            .addCase(editMovie.fulfilled, (state, { payload }) => {
+                state.allMovies = state.allMovies.map((movie) =>
+                    movie._id === payload._id ? payload : movie
+                );
+                state.isLoading = false;
+            })
+            .addCase(editMovie.pending, state => {
+                state.isLoading = true;
+            })
+            .addCase(editMovie.rejected, (state, { payload }) => {
                 state.isLoading = false;
                 state.isError = payload;
             })
