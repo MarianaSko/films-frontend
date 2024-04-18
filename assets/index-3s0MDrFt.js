@@ -714,7 +714,7 @@ To suppress this warning, you need to explicitly provide the \`palette.${t}Chann
     margin-bottom: 24px;
     text-transform: uppercase;
   }
-`,$ce=()=>{const e=ed(C_);return T.jsxs(Tce,{children:[T.jsx("h3",{children:"Your favourite movies"}),(e==null?void 0:e.length)===0?T.jsxs(k_,{children:["You do not have any advertisments in your ",T.jsx("span",{children:"favorites list"}),"!"]}):T.jsx(P_,{children:e==null?void 0:e.map(t=>T.jsx(R_,{movie:t},t._id))})]})};var Me={},aj={},rt={},lj={},mt={};/**
+`,$ce=()=>{const e=ed(C_);return T.jsxs(Tce,{children:[T.jsx("h3",{children:"Your favourite movies"}),(e==null?void 0:e.length)===0?T.jsxs(k_,{children:["You do not have any movies in your ",T.jsx("span",{children:"favorites list"}),"!"]}):T.jsx(P_,{children:e==null?void 0:e.map(t=>T.jsx(R_,{movie:t},t._id))})]})};var Me={},aj={},rt={},lj={},mt={};/**
    * table-core
    *
    * Copyright (c) TanStack
