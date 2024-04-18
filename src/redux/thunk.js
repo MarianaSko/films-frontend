@@ -21,7 +21,6 @@ export const deleteMovie = createAsyncThunk('/movies/:id', async ({ id }, thunkA
 
 export const addMovie = createAsyncThunk('/movies/add', async (newMovie, thunkApi) => {
     try {
-        console.log(newMovie);
         const response = await api.post(`/movies/add`, newMovie);
         return response.data;
     } catch (error) {
