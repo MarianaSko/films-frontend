@@ -13,7 +13,6 @@ const FavoritesPage = lazy(() =>
 const AddMoviePage = lazy(() =>
   import("../../pages/AddMoviePage/AddMoviePage")
 );
-const EditPage = lazy(() => import("../../pages/EditPage/EditPage"));
 
 const App = () => {
   const isLoading = useSelector(selectLoading);
@@ -34,7 +33,6 @@ const App = () => {
           <Route index element={<HomePage />} />
           <Route path="favourites" element={<FavoritesPage />} />
           <Route path="add" element={<AddMoviePage />} />
-          <Route path="edit" element={<EditPage />}></Route>
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
